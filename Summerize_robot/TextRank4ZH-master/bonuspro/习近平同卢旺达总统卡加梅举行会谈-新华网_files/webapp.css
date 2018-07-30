@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* @author ------- cued.xunlei.com - BaeorHuang huangwanfang@xunlei.com
+ * @time   -------- 2011-08
+ * @type   -------- kankan web app style */
+html,body,div,p,h1,h2,h3,a,img,dl,dt,dd,ul,li,input,button,form{margin:0;padding:0;}
+ol,ul{list-style:none;}
+h1,h2,h3{font-size:100%;}
+iframe{ border:0;}
+fieldset,img{border:0;}
+em{font-style:normal;}
+label,input{vertical-align:middle;font-family:tahoma;}
+label{cursor:pointer;}
+a:hover{text-decoration:underline;}
+body{text-align:left;font:12px/1.5 Tahoma,Helvetica,Arial,\5B8B\4F53,sans-serif;color:#595959;background-color:#242424; overflow-x:hidden;}
+a{text-decoration:none;color:#919191;}
+a:hover{text-decoration:underline;}
+.piclist li a:hover{text-decoration:none}
+.indent,.btn_search,.ico{text-indent:-999em;overflow:hidden;display:block;}
+.clear,.piclist{clear:both;}
+.clearfix:after,.mainpan:after,.piclist:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.c_hlight,.piclist li a:hover{color:#118FD7}
+/*------- reset style end -------*/
+html,body{width:100%;height:100%}
+.wrap,.cont{width:100%;height:100%;margin:0 auto; overflow:hidden;position:relative;}
+.video_box,.header,.install_box,{width:100%;margin:0 auto}
+h1{color:#E1E1E1;font-size:14px;font-weight:normal;}
+.op_link{position:absolute;top:5px;right:0;padding-left:9px;display:block;}
+.back_link{position:absolute;top:5px;right:5px;color:#FFFFFF;font-family:\5B8B\4F53}
+.op_link b{position:absolute;left:0;top:14px;top:11px\9;_top:13px;overflow:hidden;display:block;font-size:0;line-height:0;width:0;height:0;border:4px dashed transparent;*border-width:4px;border-left-style:solid;border-left-color:#919191;}
+.video_box{position:relative;height:100%;background-color:#000000}
+/*install*/
+.install_box{min-height:28px;height:auto;_height:28px;padding-top:4px}
+.tip_box{position:relative;background:#282828;margin-bottom:2px;border:1px solid #181818;padding:1px;height:28px;display:inline-block;*display:inline;*zoom:1;}
+.tip_box_in{height:28px;background-color:#1C1C1C;display:inline-block;*display:inline;*zoom:1;}
+.tip_box p{float:left;text-indent:13px;line-height:28px}
+.hbtn{width:80px;height:25px;background:url(img/diver.png) no-repeat -175px 0;float:left;display:block;_display:inline;margin:2px 0 0 12px;text-indent:-999em;overflow:hidden;}
+.toclose{text-indent:-999em;overflow:hidden;width:19px;height:19px;background:url(img/diver.png) no-repeat -105px -20px;float:left;margin:4px 7px 0 12px;}
+.play_list_box{width:932px;height:25px;position:relative;overflow:hidden;margin-bottom:15px;padding-top:4px}
+.play_list_con{width:882px;overflow:hidden;margin-left:26px;position:relative;}
+.play_list_con ul{width:940px}
+.play_list li{float:left;_display:inline;margin-right:5px;margin-bottom:2px}
+.play_list li a{display:block;width:29px;height:25px;text-align:center;color:#A2A2A2;background:url(img/diver.png) no-repeat -70px 0;line-height:29px;overflow:hidden;}
+.play_list li a:hover{background-position:-35px 0;text-decoration:none;color:#1090D8}
+.play_list li .on,.play_list li .on:hover{background-position:0 0;color:#FFFFFF;font-weight:bold;}
+.play_list2{margin-left:1px}
+.play_list2 li{margin-right:8px}
+.play_list2 li a{width:60px;background-position:-525px 0;}
+.play_list2 li a:hover{background-position:-325px 0}
+.play_list2 li .on,.play_list2 li .on:hover{background-position:-260px 0}
+.play_list_box .arr{text-indent:-999em;overflow:hidden;display:block; position:absolute;top:50%;margin-top:-5px; width:9px;height:17px;background:url(/img/diver.png) no-repeat -105px 0;}
+.play_list_box .arr_pre{left:10px;}
+.play_list_box .arr_pre_fbd{left:10px;background-position:-125px 0;cursor:default;}
+.play_list_box .arr_next{right:10px;background-position:-115px 0;}
+.play_list_box .arr_next_fbd{right:10px;cursor:default;background-position:-135px 0}
+.cartoon_play_box{height:auto;margin-bottom:4px;padding-top:0}
+.cartoon_play_box .play_list_con{width:882px}
+.cartoon_play_box .play_list2 li{margin-right:3px}
+.paly_text_list{width:1020px}
+.paly_text_list li{float:left;_display:inline;margin-right:10px;width:212px;line-height:22px;height:22px;overflow:hidden;}
+.paly_text_list li .on{color:#0D90D8;font-weight:bold;}
+.variety_play_box{height:42px;}
+.variety_play_box .play_list_con{margin-left:32px}
+.footer{text-align:center;line-height:26px;background:#242424 url(img/diver.png) no-repeat 50% -42px;position:relative;z-index:5}
+/*error*/
+.error {position:absolute;left:50%;top:0;width:1002px;height:100%;background:#000 url(img/error.png) no-repeat center 80px;padding-top:80px;margin-left:-501px;color:#fff;z-index:999;text-align:center;}
+.error p {padding:100px 0 20px;font-size:14px;line-height:24px;}
+.errortxt {position:absolute;left:0;top:0;width:100%;height:100%;background:#000;padding-top:200px;color:#fff;z-index:999;text-align:center;}
+.errortxt p {padding-bottom:20px;font-size:16px;font-family:\5FAE\8F6F\96C5\9ED1;line-height:24px;}
+.errortxt a, .error a {text-decoration:underline;color:#0A6594}
+.errortxt div {padding:20px 0 0 178px;text-align:left;}
+/*errorbox*/
+.errorbox {position:absolute;left:50%;top:0;width:618px;height:303px;background:#000;padding-top:100px;margin-left:-309px;color:#fff;z-index:999;text-align:center;}
+.errorbox p {padding:100px 0 20px;font-size:14px;line-height:24px;}
+.errorbox .error_copyright p {padding-top:0;text-align:left;}
+/*playad*/
+.player {position:relative;background:#000000;overflow:hidden;height:100%}
+.playad {position:absolute;left:0;top:0;width:1002px;height:404px;z-index:2;}
+.playad_5s {position:absolute;left:0;top:0;width:1002px;height:404px;background:#000;z-index:2;}
+.playad_5s p {position:absolute;right:10px;top:10px;color:#f1f1f1;}
+.playad_5s p span {color:#ff5400;font-weight:bold;}
+.playad_5s div {position:absolute;left:50%;top:50%;width:400px;height:240px;background:#333;margin:-120px 0 0 -200px;z-index:3;}
+.playad_5s_wide {height:540px;}
+/*player_adctrl*/
+.playbg {position:absolute;left:0;top:0;width:1002px;height:404px;background:#000;z-index:3;filter:alpha(opacity=60);opacity:0.6;}
+.closebox {position:absolute;right:0;top:0;width:38px;height:20px;z-index:4;}
+.closebox_L {right:964px;}
+.closebox div {width:38px;height:20px;background:#000;filter:alpha(opacity=30);opacity:0.3;}
+.closebox a {position:relative;top:-20px;display:block;height:20px;color:#fff;text-align:center;}
+.playerbox {background:#000;z-index:999;height:540px}
+.playerTV {height:512px;background:#000 url(img/bg_playertv.png) repeat-x left bottom;}
+.playerTV .playad {height:512px;}
+.playerTV .playbg {height:512px;}
+.playerTV .playerbox {height:512px;}
+.playerTV .playad_5s {height:512px;}
+
+.playerTV .insbox {height:411px;padding-top:100px;}

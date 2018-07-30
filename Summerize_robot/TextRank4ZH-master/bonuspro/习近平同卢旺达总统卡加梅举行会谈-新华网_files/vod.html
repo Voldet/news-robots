@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://vod.xinhuanet.com/v/vod.html?vid=526262 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<title>新华网</title>
+<link href="./webapp.css" rel="stylesheet" type="text/css" media="all">
+<script src="./jq.js.下载" type="text/javascript"></script>
+<script type="text/javascript">
+	document.domain = "xinhuanet.com";
+	
+	function kkPlayerLoaded(){
+		G_PLUGIN_MOVIE.setConfig('adNotice',false);
+		G_PLUGIN_MOVIE.addCallBack("onEnd",function()
+		{
+			
+			if($("#dsp").length > 0)
+			{
+				var spSrc =$('#dsp').html();
+				var ifrHtml = '<iframe src='+spSrc+' width="100%" height="100%"></iframe>';
+				$("#_player").html(ifrHtml);
+
+			}
+			
+			
+			
+			var no = parseInt(window.parent.$("#para").text()) + 1;
+			//跳转到下一个视频的链接
+			var res = $('#rvod_'+no, parent.document).find("a").get(0);            //是否右侧推荐视频有链接
+			var resDsp = null;                                                     //是否是单视频细览页
+			
+			if(typeof(res) == 'undefined')
+			{
+				if($("#dsp", parent.document).length > 0)
+				{
+					resDsp =$('#dsp', parent.document).html();
+					$("#iframe1", parent.document).attr("src",resDsp);
+				}
+				else
+				{
+					//window.parent.location.href = window.parent.$("#rvod_0 a").attr('href');
+					//window.parent.location.href = "http://www.xinhuanet.com";      //推荐的视频没有且不是单视频细览页，跳转到新华首页
+					if(parseInt(no) == 15)													//推荐视频播放完毕后重新循环播放视频
+					{
+						res = $('#rvod_0', parent.document).find("a").get(0);
+						window.parent.location.href = res+'?c=0';
+					}
+				}
+			}
+			else
+			{
+				window.parent.location.href = res+'?c='+no;                        //一个接一个播放视频
+			}
+		})
+		//G_PLUGIN_MOVIE.load(getParameter("movieid"),-1,getParameter("subid"));//影片id
+		if(getParameter("vid")){
+			G_PLUGIN_MOVIE.playSvodById(getParameter("vid"),true);
+		}else if(getParameter("url")){
+			G_PLUGIN_MOVIE.playSvodByUrl(getParameter("url"),true);
+		}else if(getParameter("gcid")){
+			G_PLUGIN_MOVIE.playSvodByGcid(getParameter("gcid"),true);
+		}
+	}
+</script><script type="text/javascript" src="./load.js.下载"></script></head><script>var vipMp4Configs = [{"reqReg":"webmain.php$","resultReg":"\"play\":\"mp4\",\"url\":\"(.*qiyi.*?)\""}]</script><script src="chrome-extension://geojgbiepfpcddgilmjphomafbedackp/mp4-page.js"></script>
+
+
+<body>
+<div class="wrap">
+<div class="video_box"><div id="errorDiv" class="errorbox" style="display: none;"></div>
+	<div class="player" id="player_container"><div id="_player" style="height: 100%; width: 100%;"><embed type="application/x-shockwave-flash" src="http://misc.vod.news.cn/v/misc/KKPlayer2.0_xhn.swf?movieType=null&amp;v=2.9&amp;popup=0" width="1" height="1" id="PlayerCtrl" name="PlayerCtrl" bgcolor="#000000" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"></div></div>
+	<div class="errorbox" style="display:none;" id="errorDiv"></div>
+	<div class="error" style="" id="playerError"><p id="playerErrorContent">检测到Flash Player控件异常,请先安装最新版本Flash Player。<a href="http://get.adobe.com/cn/flashplayer/" target="_blank">立即下载安装Flash Player</a><br></p></div>
+	<noscript>
+		&lt;div class="errortxt"&gt;
+			&lt;p&gt;检测到环境不支持JavaScript，请打开浏览器的 JavaScript 支持，或者降低浏览器安全级别。&lt;/p&gt;
+		&lt;/div&gt;
+	</noscript>
+</div>
+</div>
+
+<div style="display:none">
+<div id="fwl">010020120000000000000000011100000000000000</div>
+<script type="text/javascript" src="./webdig.js.下载">
+</script>
+<script type="text/javascript">wd_paramtracker("_wdxid=010020120000000000000000011100000000000000")
+</script>
+<noscript>
+&lt;img src="http://webd.home.news.cn/1.gif?z=1&amp;_wdxid=010020120000000000000000011100000000000000" border="0" /&gt;
+</noscript>
+</div>
+
+<div id="dsp" style="display:none;">http://www.xinhuanet.com/video/xbsp/page_ldr.htm</div>
+<script type="text/javascript">kkLoadPlayer("player_container");</script><script type="text/javascript" src="./swfobject.js.下载" charset="gbk"></script><script type="text/javascript" src="./player_min.js.下载" charset="gbk"></script><script type="text/javascript" src="./core_min.js.下载" charset="gbk"></script>
+
+<!--新增js开始-->
+<script type="text/javascript">
+var PC_Hreartime;//pc心跳
+var PC_TIME_times;//pc轮询
+var M_Hreartime;//M心跳
+var M_TIME_times;//pc轮询
+try
+{
+	window.parent.WDCI = escape(window.location.href);
+	window.parent.currentvideoId = escape(window.location.href);
+	
+   if(parent.VVBrowser){
+		if(parent.VVBrowser.versions.isMobile){
+			var Media;
+			//flash播放器自己存在机制，但没有接口，只能参考播放器自己的机制，延迟判断。
+			setTimeout(function(){if(G_PLAYER_INIT.h5playerObj!==undefined){Media = document.getElementById("PlayerCtrl");mobile()}},400);
+			//移动端内容
+			function mobile(){
+				
+				if(Media){
+					
+					var Media_Time ;
+					function Numtime(num,value){
+						if(typeof(Number(Media.currentTime)) == "number"){
+							num = Number(Media.currentTime);
+							if(num > window.parent.Vtime){
+								value = num - window.parent.Vtime;
+								window.parent.Vtime = num ;
+								if(value>62 || value<56){
+									value = (window.CURRENTTIME+60).toFixed(3);
+								}else{
+									value = Number(value).toFixed(3);
+								}
+							}else{
+								value = 60.000
+							}
+
+							value = Number(value).toFixed(3);
+							window.parent.Residue = value;
+						}
+						window.parent.WDCI = escape(window.location.href);
+						window.parent.Heartdata.c=window.location.href.indexOf("?")!=-1?window.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+value+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND : window.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+value+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND;
+
+						window.parent.Enddata.c=window.location.href.indexOf("?")!=-1?window.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+value+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND : window.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+value+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND;
+						window.parent.FullScreen = 0;
+						window.parent.Pause = 0;
+						window.parent.FORWARD = 0;
+						window.parent.REWIND = 0;
+					}
+					window.CURRENTTIME = 0//跳动前的状态
+				
+					Media.onplaying = function(){
+						
+						if(window.parent.StartStatus == true){
+							if(!window.parent.Startdata==false){
+								window.parent.Startdata.d = Media.src;
+								window.parent.Heartdata.d = Media.src;
+								window.parent.Enddata.d = Media.src;
+								window.parent.Statusvedio(window.parent.Startdata);
+							}
+							window.parent.StartStatus = false;
+							
+						}
+						Media_Time = Media.duration;
+						if(window.parent.Heartdata){
+							M_TIME_time = setInterval(Numtime,60000);
+							M_Hrear_time = setInterval(window.parent.Statusvedio,60000,window.parent.Heartdata);
+
+							var beforeTime = 0;
+						
+							Media.addEventListener('timeupdate',function(){
+								
+								if(Math.abs(Media.currentTime - beforeTime < 1)){
+									window.CURRENTTIME = Media.currentTime;
+									beforeTime = window.CURRENTTIME;
+								}else{
+									window.CURRENTTIME = beforeTime;
+								}
+							},false);
+						}
+					}
+					Media.onpause = function() {
+						if(window.parent.Heartdata){
+							clearInterval(M_Hrear_time);
+							clearInterval(M_TIME_time);
+						}
+						window.parent.Pause = window.parent.Pause+1;
+						if(Media.ended==true){
+							clearInterval(M_Hrear_time);
+							clearInterval(M_TIME_time);
+							if(window.parent.Residue<=0){
+								window.parent.Residue = Media_Time.toFixed(3);
+							}
+							if(window.parent.Enddata){
+								
+								window.parent.Enddata.c=window.location.href.indexOf("?")!=-1?window.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+window.parent.Residue+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND : window.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc=01002005055&_dur='+window.parent.Residue+'&_fsc='+parseInt(window.parent.FullScreen/2)+'&_pc='+Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.WDCI+'&_fwc='+window.parent.FORWARD+'&_rwc='+window.parent.REWIND;
+								
+								window.parent.Statusvedio(window.parent.Enddata);
+							}
+							window.parent.StartStatus = true;
+						}
+					}
+					Media.onseeking = function(){
+						if(Media.currentTime - window.CURRENTTIME>0){
+							window.parent.FORWARD = window.parent.FORWARD+1;
+						}else{
+							window.parent.REWIND = window.parent.REWIND+1;
+						}
+					}
+					document.addEventListener("fullscreenchange", function(e) {
+						window.parent.FullScreen = window.parent.FullScreen+1;
+					});
+					document.addEventListener("mozfullscreenchange", function(e) {
+						window.parent.FullScreen = window.parent.FullScreen+1;
+					});
+					document.addEventListener("webkitfullscreenchange", function(e) {
+						window.parent.FullScreen = window.parent.FullScreen+1;
+					});
+					document.addEventListener("msfullscreenchange", function(e) {
+						window.parent.FullScreen = window.parent.FullScreen+1;
+					});
+				}
+			}
+		}else{
+			//pc端内容
+			window.parent.PCStartdata.d = window.location.href;
+			window.parent.PCHeartdata.d = window.location.href;
+			window.parent.PCEnddata.d = window.location.href;
+			window.parent.currentvideoId = escape(window.location.href);
+			function Numtimes(num,value){
+				if(G_PLAYER_INSTANCE.getPlayPosition(true)){
+					num = G_PLAYER_INSTANCE.getPlayPosition(true);
+					if(num > window.parent.Vtime){
+						value = num - window.parent.Vtime;
+						window.parent.Vtime = num ;
+						if(value>62 || value<56){
+							value = 60.000;
+						}else{
+							value = Number(value).toFixed(3);
+						}
+					}else{
+						value = 60.000;
+					}
+				}else{
+					value = 60.000;
+				}
+				
+				value = Number(value).toFixed(3);
+				
+				window.parent.Residue = value;
+				
+				window.parent.PCHeartdata.c=(window.parent.location.href.indexOf("?")!=-1) ? window.parent.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+value+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId : window.parent.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+value+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId;
+
+				window.parent.PCEnddata.c=(window.parent.location.href.indexOf("?")!=-1) ? window.parent.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+value+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId : window.parent.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+value+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId;
+				window.parent.FullScreen = 0;
+				window.parent.Pause = 0;
+			}
+			var Alltime;
+			function flv_playerEvent(event,value){
+				
+				if(event=='onbuffering'){
+					clearInterval(window.PC_Hreartime);
+				}else if(event=='onplaying'){
+					
+					if(window.parent.StartStatus == true){
+						if(window.parent.PCStartdata){
+							window.parent.Statusvedio(window.parent.PCStartdata);
+							Alltime = G_PLAYER_INSTANCE.getDuration();
+						}
+						window.parent.StartStatus = false;
+					}
+					if(window.parent.PCHeartdata){
+						PC_TIME_times = setInterval(Numtimes,60000);
+						PC_Hreartime = setInterval(window.parent.Statusvedio,60000,window.parent.PCHeartdata);
+						Alltime = G_PLAYER_INSTANCE.getDuration();
+					}
+					
+				}else if(event=='onPause'){
+					clearInterval(PC_Hreartime);
+					clearInterval(PC_TIME_times);
+					window.parent.Pause = window.parent.Pause + 1;
+				}else if (event=='onEnd'){
+					clearInterval(PC_Hreartime);
+					clearInterval(PC_TIME_times);
+					
+					if(window.parent.Residue<=0){
+						window.parent.Residue = Alltime.toFixed(3);
+					}
+					if(window.parent.PCHeartdata){
+						window.parent.PCEnddata.c=(window.parent.location.href.indexOf("?")!=-1) ? window.parent.location.href+'&_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+window.parent.Residue+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId : window.parent.location.href+'?_wdxid=000000000000000000000000000000000000000000&_wdc='+window.parent.DAC+'&_dur='+window.parent.Residue+'&_fsc='+window.parent.FullScreen+'&_pc='+window.parent.Pause+'&_wda=0&_wdt=311&_wdci='+window.parent.currentvideoId;
+						window.parent.Statusvedio(window.parent.PCEnddata);
+						clearInterval(PC_Hreartime);
+						clearInterval(PC_TIME_times);
+					}
+					window.parent.StartStatus = true;
+				}
+				if(event=='onFullScreen'){
+					
+					window.parent.FullScreen = window.parent.FullScreen+1;
+					
+				}
+			}
+		}
+	}
+}
+catch(err)
+{
+   //在此处理错误
+}
+</script>
+<!--新增js结束-->
+
+
+
+</body></html>
